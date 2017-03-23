@@ -55,15 +55,17 @@ public class CheeseController {
     }
 
     //edit get
-    @RequestMapping(value = "edit", method = RequestMethod.GET)
+    @RequestMapping(value = "edit/{cheeseID}", method = RequestMethod.GET)
     public String displayEditForm(Model model, @PathVariable int cheeseID){
         model.addAttribute("cheese", CheeseData.getById(cheeseID));
         return "cheese/edit";
     }
 
-    @RequestMapping(value = "edit", method = RequestMethod.POST)
+    @RequestMapping(value = "edit/{cheeseID}", method = RequestMethod.POST)
     public String processEditForm(Model model, int cheeseId, String name, String description){
-        model.addAttribute("cheese Id", cheeseId);
+        //model.addAttribute("cheese Id", cheeseId);
+        //model.addAttribute("name", name);
+        //model.addAttribute("description", description);
         CheeseData.getById(cheeseId).setName(name);
         CheeseData.getById(cheeseId).setDescription(description);
 
