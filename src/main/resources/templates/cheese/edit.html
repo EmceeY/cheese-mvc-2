@@ -2,21 +2,23 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body class="container">
-<h1 th:text="'Edit Cheese ' + ${cheese.name} + ' (id=' + ${cheese.cheeseId} + ')'"></h1>
+<h1 class="alert alert-success" role="alert" th:text="'Edit Cheese ' + ${cheese.name} + ' (id=' + ${cheese.cheeseId} + ')'"></h1>
+
+<a class="alert alert-danger" role="alert" th:if="${error}" th:text="${error}"></a>
 
 <nav th:replace="fragments :: navigation"></nav>
 
 <form method="post" style="max-width:600px;">
     <div class="form-group">
         <label for="name-field" th:text="${cheese.name}"></label>
-        <input class="form-control" id="name-field" type="text" name="name" />
+        <input class="form-control" id="name-field" type="text" name="name" th:value="${cheese.name}" />
     </div>
     <div class="form-group">
         <label for="desc-field" th:text="${cheese.description}"></label>
-        <input class="form-control" id="desc-field" type="text" name="description" />
-        <input type="hidden" value="${cheese.cheeseId}" name="cheeseID" />
+        <input class="form-control" id="desc-field" type="text" name="description" th:value="${cheese.description}" />
     </div>
-    <input type="submit" value="Add Cheese" />
+    <input type="hidden" value="${cheese.cheeseId}" name="cheeseId" />
+    <input type="submit" value="Update Cheese" />
 
 </form>
 

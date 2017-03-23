@@ -10,8 +10,7 @@
 
 <p th:unless="${cheeses} and ${cheeses.size()}">no cheese :(</p>
 
-
-
+<a class="alert alert-success" role="alert" th:if="${message}" th:text="${message}"></a>
 
 <table class="table">
 
