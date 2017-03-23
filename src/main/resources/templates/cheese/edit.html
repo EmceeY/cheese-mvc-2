@@ -14,9 +14,10 @@
     <div class="form-group">
         <label for="desc-field" th:text="${cheese.description}"></label>
         <input class="form-control" id="desc-field" type="text" name="description" />
+        <input type="hidden" value="${cheese.cheeseId}" name="cheeseID" />
     </div>
     <input type="submit" value="Add Cheese" />
-    <input type="hidden" value="${cheese.cheeseId}" name="cheeseID" />
+
 </form>
 
 </body>
